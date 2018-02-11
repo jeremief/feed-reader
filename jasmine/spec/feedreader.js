@@ -35,18 +35,26 @@ $(function() {
             var numberMissingUrls = 0;
             var numberEmptyUrls = 0;
 
-            for (var feed of allFeeds) {
+            for (var feed of allFeeds){
                 var hasUrl = false;
+                var urlIsEmpty = true;
                 for (var feedProperty in feed){
                     if (feedProperty == 'url') {
                         hasUrl = true;
+                        if (feed.url != "") {
+                            urlIsEmpty = false;
+                        }
                     }
                 }
                 if (hasUrl == false){
                     numberMissingUrls++;
                 }
+                if (urlIsEmpty == true){
+                    numberEmptyUrls++;
+                }
             }
             expect(numberMissingUrls).toBe(0);
+            expect(numberEmptyUrls).toBe(0);
 
          });
 
