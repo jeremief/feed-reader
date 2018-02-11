@@ -58,7 +58,15 @@ $(function() {
 
          });
 
-         it('have a valid name', function(){
+
+
+
+        /* TODO: Write a test that loops through each feed
+         * in the allFeeds object and ensures it has a name defined
+         * and that the name is not empty.
+         */
+
+        it('have a valid name', function(){
             var numberMissingNames = 0;
             var numberEmptyNames = 0;
 
@@ -84,12 +92,6 @@ $(function() {
             expect(numberEmptyNames).toBe(0);
 
          });
-
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
     });
 
 
