@@ -31,6 +31,24 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         it('have a valid url', function(){
+            var numberMissingUrls = 0;
+            var numberEmptyUrls = 0;
+
+            for (var feed of allFeeds) {
+                var hasUrl = false;
+                for (var feedProperty in feed){
+                    if (feedProperty == 'url') {
+                        hasUrl = true;
+                    }
+                }
+                if (hasUrl == false){
+                    numberMissingUrls++;
+                }
+            }
+            expect(numberMissingUrls).toBe(0);
+
+         });
 
 
         /* TODO: Write a test that loops through each feed
