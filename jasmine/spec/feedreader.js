@@ -58,6 +58,33 @@ $(function() {
 
          });
 
+         it('have a valid name', function(){
+            var numberMissingNames = 0;
+            var numberEmptyNames = 0;
+
+            for (var feed of allFeeds){
+                var hasName = false;
+                var nameIsEmpty = true;
+                for (var feedProperty in feed){
+                    if (feedProperty == 'name') {
+                        hasName = true;
+                        if (feed.name != "") {
+                            nameIsEmpty = false;
+                        }
+                    }
+                }
+                if (hasName == false){
+                    numberMissingNames++;
+                }
+                if (nameIsEmpty == true){
+                    numberEmptyNames++;
+                }
+            }
+            expect(numberMissingNames).toBe(0);
+            expect(numberEmptyNames).toBe(0);
+
+         });
+
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
