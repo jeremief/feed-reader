@@ -120,6 +120,26 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+          it('should show or hide the menu when the icon is clicked',function(){
+            $(document).ready(function(){
+
+                var isHidden = false;
+
+                $('.menu-icon-link').trigger('click');
+                if($('body').hasClass('menu-hidden')){
+                    isHidden = true;
+                }
+                expect(isHidden).toBe(false);
+
+
+                $('.menu-icon-link').trigger('click');
+                if($('body').hasClass('menu-hidden')){
+                    isHidden = true;
+                }
+                expect(isHidden).toBe(true);
+
+            });
+          });
 
     });
 
