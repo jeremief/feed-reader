@@ -153,19 +153,28 @@ $(function() {
              * Remember, loadFeed() is asynchronous so this test will require
              * the use of Jasmine's beforeEach and asynchronous done() function.
              */
+    
+             var firstListItem = undefined;
 
-             pending();
-        // beforeEach(function(done){
-        //     loadFeed(0);
-        //     done();
-
-        //     });
-
-        // it('should load at least one feed', function(done){
-        //     expect(container.length).toBeGreaterThan(0);
-        //     done();
+// $(document).ready(function(){
+        beforeEach(function(done){
+            loadFeed(0, function(){
+            firstListItem = $('body .entry h2').html();
+            console.log('first list item: ' + firstListItem);
+            done();
+                
+            });
+            });
 
         // });
+
+        // it('should load at least one feed', function(done){
+            // loadFeed(0);
+        it('should load at least one feed', function(){
+            expect(firstListItem).toBeDefined();
+            // done();
+
+        });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
@@ -189,7 +198,7 @@ $(function() {
                 done();
                 });
         });
-        it("should load a new feed on click",function(){
+        it("should load a completely new feed",function(){
             expect(firstFeed).not.toBe(secondFeed);
         });
     });
