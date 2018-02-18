@@ -145,18 +145,52 @@ $(function() {
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial entries', function(){
 
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+            /* TODO: Write a test that ensures when the loadFeed
+             * function is called and completes its work, there is at least
+             * a single .entry element within the .feed container.
+             * Remember, loadFeed() is asynchronous so this test will require
+             * the use of Jasmine's beforeEach and asynchronous done() function.
+             */
+
+             pending();
+        // beforeEach(function(done){
+        //     loadFeed(0);
+        //     done();
+
+        //     });
+
+        // it('should load at least one feed', function(done){
+        //     expect(container.length).toBeGreaterThan(0);
+        //     done();
+
+        // });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+         describe("New Feed Selection",function(){
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+        var firstFeed = ""; // This is the initial state
+        var secondFeed = ""; // This is the final state
+
+        beforeEach(function(done){
+            loadFeed(0,function(){ 
+                firstFeed = $(".feed").html();
+            });
+
+            loadFeed(1,function(){
+                secondFeed = $(".feed").html();
+                done();
+                });
+        });
+        it("should load a new feed on click",function(){
+            expect(firstFeed).not.toBe(secondFeed);
+        });
+    });
 }());
