@@ -2,7 +2,7 @@
 
 
 SCREENSHOT
-![Picture of the Udacity feed reader](/images/Screenshot.png?raw=true "Final result" =WIDTHxHEIGHT)
+![Picture of the Udacity feed reader](/images/Screenshot.png?raw=true "Final result")
 
 
 ## Table of Contents
