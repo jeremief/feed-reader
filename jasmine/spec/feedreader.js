@@ -147,38 +147,31 @@ $(function() {
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial entries', function(){
 
-            /* TODO: Write a test that ensures when the loadFeed
-             * function is called and completes its work, there is at least
-             * a single .entry element within the .feed container.
-             * Remember, loadFeed() is asynchronous so this test will require
-             * the use of Jasmine's beforeEach and asynchronous done() function.
-             */
+        /* TODO: Write a test that ensures when the loadFeed
+         * function is called and completes its work, there is at least
+         * a single .entry element within the .feed container.
+         * Remember, loadFeed() is asynchronous so this test will require
+         * the use of Jasmine's beforeEach and asynchronous done() function.
+         */
     
-             var firstListItem = undefined;
+        var firstListItem = undefined;
 
-// $(document).ready(function(){
         beforeEach(function(done){
             loadFeed(0, function(){
             firstListItem = $('body .entry h2').html();
-            console.log('first list item: ' + firstListItem);
+            // console.log('first list item: ' + firstListItem);
             done();
                 
             });
-            });
+        });
 
-        // });
-
-        // it('should load at least one feed', function(done){
-            // loadFeed(0);
         it('should load at least one feed', function(){
             expect(firstListItem).toBeDefined();
-            // done();
-
         });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-         describe("New Feed Selection",function(){
+     describe("New Feed Selection",function(){
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
@@ -198,8 +191,9 @@ $(function() {
                 done();
                 });
         });
+        
         it("should load a completely new feed",function(){
             expect(firstFeed).not.toBe(secondFeed);
+            });
         });
-    });
 }());
