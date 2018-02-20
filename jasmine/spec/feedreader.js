@@ -41,15 +41,15 @@ $(function() {
                 for (var feedProperty in feed){
                     if (feedProperty == 'url') {
                         hasUrl = true;
-                        if (feed.url != "") {
+                        if (feed.url !== "") {
                             urlIsEmpty = false;
                         }
                     }
                 }
-                if (hasUrl == false){
+                if (hasUrl === false){
                     numberMissingUrls++;
                 }
-                if (urlIsEmpty == true){
+                if (urlIsEmpty === true){
                     numberEmptyUrls++;
                 }
             }
@@ -75,15 +75,15 @@ $(function() {
                 for (var feedProperty in feed){
                     if (feedProperty == 'name') {
                         hasName = true;
-                        if (feed.name != "") {
+                        if (feed.name !== "") {
                             nameIsEmpty = false;
                         }
                     }
                 }
-                if (hasName == false){
+                if (hasName === false){
                     numberMissingNames++;
                 }
-                if (nameIsEmpty == true){
+                if (nameIsEmpty === true){
                     numberEmptyNames++;
                 }
             }
@@ -152,7 +152,7 @@ $(function() {
          * a single .entry element within the .feed container.
          */
     
-        var firstListItem = undefined;
+        var firstListItem = "";
 
         beforeEach(function(done){
             loadFeed(0, function(){
