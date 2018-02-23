@@ -184,11 +184,11 @@ $(function() {
         beforeEach(function(done){
             loadFeed(0,function(){ 
                 firstFeed = $(".feed").html();
-            });
+                loadFeed(1,function(){
+                    secondFeed = $(".feed").html();
+                    done();
+                });
 
-            loadFeed(1,function(){
-                secondFeed = $(".feed").html();
-                done();
             });
         });
 
