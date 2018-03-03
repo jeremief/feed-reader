@@ -156,14 +156,14 @@ $(function() {
 
         beforeEach(function(done){
             loadFeed(0, function(){
-            firstListItem = $('body .entry h2').html();
+            firstListItem = $('.feed .entry').html();
             done();
                 
             });
         });
 
         it('should load at least one feed', function(){
-            expect(firstListItem).toBeDefined();
+            expect(firstListItem).not.toBeNull();
         });
     });
 
